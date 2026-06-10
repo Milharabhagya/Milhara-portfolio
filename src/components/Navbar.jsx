@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -13,37 +14,52 @@ export default function Navbar() {
   const links = ['About', 'Skills', 'Projects', 'Experience', 'Education', 'Contact']
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#111110]/95 backdrop-blur-md border-b border-[#3A3A38]' : 'bg-transparent'}`}>
+    <motion.nav initial={{y:-60, opacity:0}} animate={{y:0, opacity:1}} transition={{duration:0.6, ease:'easeOut'}}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'border-b' : ''}`}
+      style={{background: scrolled ? 'rgba(17,17,16,0.95)' : 'transparent', backdropFilter: scrolled ? 'blur(12px)' : 'none', borderColor:'#3A3A38'}}>
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <span className="font-mono text-sm font-medium text-white">MB<span className="text-[#E8622A]">.</span></span>
+        <motion.span whileHover={{scale:1.1}} className="font-mono text-sm font-medium text-white cursor-default">
+          MB<span style={{color:'#E8622A'}}>.</span>
+        </motion.span>
         <ul className="hidden md:flex gap-8">
-          {links.map(link => (
-            <li key={link}>
-              <a href={`#${link.toLowerCase()}`} className="text-[13px] text-[#5F5E5A] hover:text-white transition-colors duration-200">
+          {links.map((link, i) => (
+            <motion.li key={link} initial={{opacity:0,y:-10}} animate={{opacity:1,y:0}} transition={{delay:0.1+i*0.08}}>
+              <a href={`#${link.toLowerCase()}`}
+                className="text-xs transition-colors duration-200 hover:text-white"
+                style={{color:'#5F5E5A'}}>
                 {link}
               </a>
-            </li>
+            </motion.li>
           ))}
         </ul>
-        <a href="#contact" className="hidden md:block text-[12px] px-4 py-2 border border-[#E8622A] text-[#E8622A] rounded hover:bg-[#E8622A] hover:text-white transition-all duration-200">
+        <motion.a href="#contact" whileHover={{scale:1.05, background:'#E8622A', color:'#fff'}}
+          whileTap={{scale:0.95}}
+          className="hidden md:block text-xs px-4 py-2 rounded border transition-all"
+          style={{borderColor:'#E8622A', color:'#E8622A'}}>
           Hire me
-        </a>
+        </motion.a>
         <button className="md:hidden flex flex-col gap-1.5" onClick={() => setMenuOpen(!menuOpen)}>
-          <span className="block w-5 h-px bg-[#B4B2A9]"></span>
-          <span className="block w-5 h-px bg-[#B4B2A9]"></span>
-          <span className="block w-5 h-px bg-[#B4B2A9]"></span>
+          <span className="block w-5 h-px" style={{background:'#B4B2A9'}}></span>
+          <span className="block w-5 h-px" style={{background:'#B4B2A9'}}></span>
+          <span className="block w-5 h-px" style={{background:'#B4B2A9'}}></span>
         </button>
       </div>
-      {menuOpen && (
-        <div className="md:hidden bg-[#1C1C1A] border-b border-[#3A3A38] px-6 py-4 flex flex-col gap-4">
-          {links.map(link => (
-            <a key={link} href={`#${link.toLowerCase()}`} onClick={() => setMenuOpen(false)}
-              className="text-sm text-[#B4B2A9] hover:text-white transition-colors">
-              {link}
-            </a>
-          ))}
-        </div>
-      )}
-    </nav>
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div initial={{height:0, opacity:0}} animate={{height:'auto', opacity:1}} exit={{height:0, opacity:0}}
+            transition={{duration:0.3}} className="md:hidden overflow-hidden border-b"
+            style={{background:'#1C1C1A', borderColor:'#3A3A38'}}>
+            <div className="px-6 py-4 flex flex-col gap-4">
+              {links.map(link => (
+                <a key={link} href={`#${link.toLowerCase()}`} onClick={() => setMenuOpen(false)}
+                  className="text-sm transition-colors hover:text-white" style={{color:'#B4B2A9'}}>
+                  {link}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   )
 }
