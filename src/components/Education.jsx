@@ -12,7 +12,7 @@ export default function Education() {
     <section id="education" className="max-w-6xl mx-auto px-6 py-24">
       <motion.p initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.5}}
         className="font-mono text-xs tracking-widest uppercase mb-3" style={{color:'#E8622A'}}>
-        05. Education
+         Education
       </motion.p>
       <motion.h2 initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.5,delay:0.1}}
         className="text-4xl font-bold text-white mb-12">Academic background</motion.h2>

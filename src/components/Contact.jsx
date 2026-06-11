@@ -8,7 +8,7 @@ export default function Contact() {
     <section id="contact" className="max-w-6xl mx-auto px-6 py-24">
       <motion.p initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.5}}
         className="font-mono text-xs tracking-widest uppercase mb-3" style={{color:'#E8622A'}}>
-        06. Contact
+         Contact
       </motion.p>
       <motion.h2 initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.5,delay:0.1}}
         className="text-4xl font-bold text-white mb-12">Get in touch</motion.h2>
@@ -19,9 +19,10 @@ export default function Contact() {
           </p>
           <div className="flex flex-col gap-3">
             {[
-              { icon: '✉️', label: 'Bhagyapremarathne46@gmail.com', href: 'mailto:Bhagyapremarathne46@gmail.com' },
-              { icon: '💼', label: 'linkedin.com/in/milhara-bhagya', href: 'https://www.linkedin.com/in/milhara-bhagya-565572340' },
-              { icon: '🐙', label: 'github.com/Milharabhagya', href: 'https://github.com/Milharabhagya' },
+             { icon: '✉️', label: 'Bhagyapremarathne46@gmail.com', href: 'mailto:Bhagyapremarathne46@gmail.com' },
+             { icon: '💼', label: 'linkedin.com/in/milhara-bhagya', href: 'https://www.linkedin.com/in/milhara-bhagya-565572340' },
+             { icon: '🐙', label: 'github.com/Milharabhagya', href: 'https://github.com/Milharabhagya' },
+             { icon: '📸', label: 'instagram.com/_____bhagya_______', href: 'https://www.instagram.com/_____bhagya_______' },
             ].map((item, i) => (
               <motion.a key={item.label} href={item.href} target="_blank" rel="noreferrer"
                 initial={{opacity:0,x:-20}} whileInView={{opacity:1,x:0}} viewport={{once:true}}

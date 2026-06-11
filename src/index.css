@@ -1,1 +1,71 @@
 @import "tailwindcss";
+
+* {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #111110;
+}
+::-webkit-scrollbar-thumb {
+  background: #E8622A;
+  border-radius: 4px;
+}
+
+/* Cursor glow effect */
+.cursor-glow {
+  width: 20px;
+  height: 20px;
+  background: rgba(232, 98, 42, 0.6);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+  mix-blend-mode: screen;
+}
+
+/* Glowing text */
+.glow-text {
+  text-shadow: 0 0 20px rgba(232, 98, 42, 0.5);
+}
+
+/* Section fade */
+.section-fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.section-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Typewriter cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.cursor-blink {
+  animation: blink 1s infinite;
+  color: #E8622A;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Particle dots */
+@keyframes particle {
+  0% { transform: translateY(0) translateX(0); opacity: 1; }
+  100% { transform: translateY(-100px) translateX(50px); opacity: 0; }
+}
