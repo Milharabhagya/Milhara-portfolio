@@ -37,11 +37,9 @@ export default function Loader({ onComplete }) {
             transition={{ duration: 0.5, type: 'spring', stiffness: 200 }}
             className="mb-12 text-center">
             <div className="font-mono text-5xl font-bold text-white mb-2">
-              MB<span style={{ color: '#E8622A' }}>.</span>
+              MILHARA<span style={{ color: '#E8622A' }}>BHAGYA.</span>
             </div>
-            <div className="font-mono text-xs tracking-widest" style={{ color: '#5F5E5A' }}>
-              MILHARA BHAGYA
-            </div>
+
           </motion.div>
 
           {/* Progress bar */}
