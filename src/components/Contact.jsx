@@ -111,7 +111,30 @@ export default function Contact() {
               whileHover={{ scale: 1.03, background: '#C44F1F', boxShadow: '0 8px 25px rgba(232,98,42,0.35)', y: -2 }}
               whileTap={{ scale: 0.97, y: 0 }}
               transition2={{ type: 'spring', stiffness: 400, damping: 18 }}
-              onClick={() => setSent(true)}
+              onClick={async () => {
+                const name = document.querySelector('input[type="text"]').value
+                const email = document.querySelector('input[type="email"]').value
+                const message = document.querySelector('textarea').value
+                if (!name || !email || !message) {
+                  alert('Please fill in all fields!')
+                  return
+                }
+                try {
+                  const res = await fetch('http://localhost:5000/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, message })
+                  })
+                  const data = await res.json()
+                  if (res.ok) {
+                    setSent(true)
+                  } else {
+                    alert(data.error || 'Something went wrong!')
+                  }
+                } catch (err) {
+                  alert('Cannot connect to server. Make sure backend is running!')
+                }
+              }}
               className="w-full py-3 text-white rounded-lg text-sm font-medium"
               style={{ background: '#E8622A', transition: 'all 0.3s ease' }}>
               {sent ? 'Message sent! ✓' : 'Send message →'}
