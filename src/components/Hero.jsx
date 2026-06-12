@@ -1,38 +1,149 @@
 import { motion } from 'framer-motion'
 
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 30 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, delay, ease: [0.25, 0.46, 0.45, 0.94] }
+})
+
 export default function Hero() {
   return (
-    <section id="about" className="min-h-screen flex flex-col justify-center max-w-6xl mx-auto px-6 pt-20">
-      <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
-        className="text-6xl md:text-7xl font-bold text-white leading-tight tracking-tight mb-3">
-        Milhara <span className="text-[#E8622A]">Bhagya</span>
-      </motion.h1>
-      <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}
-        className="text-2xl text-[#B4B2A9] mb-6">
-        <span className="text-white font-medium">Full Stack Developer</span> & <span className="text-white font-medium">Mobile App Developer</span>
-      </motion.p>
-      <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }}
-        className="text-[#5F5E5A] max-w-lg leading-relaxed mb-10">
-        Software Engineering undergraduate at NSBM Green University, affiliated with Plymouth University UK. Building clean web and mobile experiences.
-      </motion.p>
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }}
-        className="flex gap-4 flex-wrap">
-        <a href="#projects" className="px-7 py-3 bg-[#E8622A] text-white rounded text-sm font-medium hover:bg-[#C44F1F] transition-colors">
-          View my projects
-        </a>
-        <a href="#contact" className="px-7 py-3 border border-[#3A3A38] text-[#B4B2A9] rounded text-sm hover:border-[#E8622A] hover:text-[#E8622A] transition-all">
-          Get in touch
-        </a>
-      </motion.div>
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.6 }}
-        className="flex gap-10 mt-16 pt-10 border-t border-[#3A3A38] flex-wrap">
-        {[['9+', 'Projects built'], ['4+', 'Specializations'], ['2026', 'Graduation'], ['LK', 'Based in Sri Lanka']].map(([num, label]) => (
-          <div key={label}>
-            <div className="font-mono text-2xl font-bold text-white">{num}</div>
-            <div className="text-xs text-[#5F5E5A] mt-1">{label}</div>
-          </div>
-        ))}
-      </motion.div>
+    <section id="about" className="min-h-screen flex items-center max-w-6xl mx-auto px-6 pt-16">
+      <div className="w-full py-10">
+
+        {/* Name */}
+        <motion.h1
+          {...fadeUp(0.1)}
+          className="text-5xl md:text-7xl font-bold text-white leading-tight tracking-tight mb-4">
+          Milhara{' '}
+          <span style={{ color: '#E8622A' }}>Bhagya</span>
+        </motion.h1>
+
+        {/* Role */}
+        <motion.p
+          {...fadeUp(0.25)}
+          className="text-xl md:text-2xl font-bold mb-6 text-white">
+          Full Stack Developer
+        </motion.p>
+
+        {/* Bio */}
+        <motion.p
+          {...fadeUp(0.4)}
+          className="text-sm leading-relaxed mb-10 max-w-lg"
+          style={{ color: '#5F5E5A' }}>
+          Software Engineering undergraduate at NSBM Green University,
+          affiliated with Plymouth University UK. Building clean web and mobile experiences.
+        </motion.p>
+
+        {/* Buttons */}
+        <motion.div
+          {...fadeUp(0.55)}
+          className="flex flex-row gap-4 flex-wrap mb-14">
+
+          {/* Primary — Download CV */}
+          <motion.a
+            href="/CV.pdf"
+            download="Milhara_Bhagya_CV"
+            whileHover={{
+              scale: 1.06,
+              background: '#C44F1F',
+              boxShadow: '0 8px 30px rgba(232,98,42,0.45)',
+              y: -2
+            }}
+            whileTap={{ scale: 0.96, y: 0 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+            className="inline-flex items-center px-8 py-3 text-white rounded-lg text-sm font-semibold"
+            style={{ background: '#E8622A', boxShadow: '0 4px 15px rgba(232,98,42,0.25)' }}>
+            Download CV
+          </motion.a>
+
+          {/* Secondary — Get in touch */}
+          <motion.a
+            href="#contact"
+            whileHover={{
+              scale: 1.06,
+              borderColor: '#E8622A',
+              color: '#E8622A',
+              boxShadow: '0 8px 25px rgba(232,98,42,0.15)',
+              y: -2
+            }}
+            whileTap={{ scale: 0.96, y: 0 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+            className="inline-flex items-center px-8 py-3 rounded-lg text-sm font-medium border transition-colors"
+            style={{ borderColor: '#3A3A38', color: '#B4B2A9' }}>
+            Get in touch
+          </motion.a>
+
+          {/* Secondary — View Projects */}
+          <motion.a
+            href="#projects"
+            whileHover={{
+              scale: 1.06,
+              borderColor: '#E8622A',
+              color: '#E8622A',
+              boxShadow: '0 8px 25px rgba(232,98,42,0.15)',
+              y: -2
+            }}
+            whileTap={{ scale: 0.96, y: 0 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+            className="inline-flex items-center px-8 py-3 rounded-lg text-sm font-medium border transition-colors"
+            style={{ borderColor: '#3A3A38', color: '#B4B2A9' }}>
+            View Projects
+          </motion.a>
+
+        </motion.div>
+
+        {/* Divider */}
+        <motion.div
+          initial={{ opacity: 0, scaleX: 0 }}
+          animate={{ opacity: 1, scaleX: 1 }}
+          transition={{ duration: 0.8, delay: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+          style={{ originX: 0, height: '0.5px', background: '#3A3A38', marginBottom: '32px' }} />
+
+        {/* Stats */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="flex gap-0 flex-wrap">
+          {[
+            ['9+', 'Projects built'],
+            ['4+', 'Specializations'],
+            ['2026', 'Graduation'],
+            ['LK', 'Based in Sri Lanka']
+          ].map(([num, label], i) => (
+            <motion.div key={label}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: 0.9 + i * 0.1,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              whileHover={{
+                y: -5,
+                background: '#262624',
+                boxShadow: '0 8px 20px rgba(0,0,0,0.3)'
+              }}
+              transition2={{ type: 'spring', stiffness: 300, damping: 20 }}
+              className="px-6 py-4 text-center cursor-default"
+              style={{
+                borderRight: i < 3 ? '0.5px solid #3A3A38' : 'none',
+                background: '#1C1C1A',
+                borderRadius: i === 0 ? '8px 0 0 8px' : i === 3 ? '0 8px 8px 0' : '0',
+                transition: 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+              }}>
+              <div
+                className="font-mono text-xl font-bold"
+                style={{ color: '#E8622A' }}>
+                {num}
+              </div>
+              <div className="text-xs mt-1" style={{ color: '#5F5E5A' }}>{label}</div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+      </div>
     </section>
   )
 }
