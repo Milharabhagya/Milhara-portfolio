@@ -17,9 +17,7 @@ export default function ParticleBackground() {
     window.addEventListener('resize', resize)
 
     class Particle {
-      constructor() {
-        this.reset()
-      }
+      constructor() { this.reset() }
       reset() {
         this.x = Math.random() * canvas.width
         this.y = Math.random() * canvas.height
@@ -27,15 +25,12 @@ export default function ParticleBackground() {
         this.speedX = (Math.random() - 0.5) * 0.4
         this.speedY = (Math.random() - 0.5) * 0.4
         this.opacity = Math.random() * 0.4 + 0.05
-        this.color = Math.random() > 0.7 ? '#E8622A' : '#5F5E5A'
+        this.color = Math.random() > 0.7 ? '#2DC4A0' : '#1E4A42'
       }
       update() {
         this.x += this.speedX
         this.y += this.speedY
-        if (this.x < 0 || this.x > canvas.width ||
-            this.y < 0 || this.y > canvas.height) {
-          this.reset()
-        }
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset()
       }
       draw() {
         ctx.beginPath()
@@ -47,12 +42,8 @@ export default function ParticleBackground() {
       }
     }
 
-    // Create particles
-    for (let i = 0; i < 80; i++) {
-      particles.push(new Particle())
-    }
+    for (let i = 0; i < 80; i++) particles.push(new Particle())
 
-    // Draw connecting lines between close particles
     const drawLines = () => {
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
@@ -63,7 +54,7 @@ export default function ParticleBackground() {
             ctx.beginPath()
             ctx.moveTo(particles[i].x, particles[i].y)
             ctx.lineTo(particles[j].x, particles[j].y)
-            ctx.strokeStyle = '#3A3A38'
+            ctx.strokeStyle = '#1E4A42'
             ctx.globalAlpha = (1 - dist / 100) * 0.3
             ctx.lineWidth = 0.5
             ctx.stroke()
@@ -88,9 +79,7 @@ export default function ParticleBackground() {
   }, [])
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 pointer-events-none"
+    <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none"
       style={{ zIndex: 0, opacity: 0.6 }} />
   )
 }

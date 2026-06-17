@@ -56,13 +56,13 @@ export default function Navbar() {
             <motion.li key={link}
               initial={{ opacity: 0, y: -15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 + i * 0.07, ease }}>
+              transition={{ duration: 0.1, delay: 0.1 + i * 0.07, ease }}>
               <motion.a
                 href={`#${link.toLowerCase()}`}
                 className="text-xs relative pb-1 transition-colors duration-300"
                 style={{ color: active === link.toLowerCase() ? '#E8622A' : '#5F5E5A' }}
                 whileHover={{ color: '#F1EFE8', y: -1 }}
-                transition={{ duration: 0.2 }}>
+                transition={{ duration: 0.1 }}>
                 {link}
                 <motion.span
                   className="absolute bottom-0 left-0 right-0 h-px"
@@ -80,7 +80,7 @@ export default function Navbar() {
           href="#contact"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.8, type: 'spring', stiffness: 300, damping: 20 }}
+          transition={{ duration: 0.1, delay: 0.1, type: 'spring', stiffness: 300, damping: 20 }}
           whileHover={{ scale: 1.07, background: '#E8622A', color: '#fff', boxShadow: '0 4px 20px rgba(232,98,42,0.35)', y: -1 }}
           whileTap={{ scale: 0.95 }}
           transition2={{ type: 'spring', stiffness: 400, damping: 18 }}

@@ -12,14 +12,18 @@ function SkillCard({ cat, cardIndex }) {
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: cardIndex * 0.1, ease }}
-      whileHover={{ y: -6, borderColor: '#E8622A', boxShadow: '0 12px 40px rgba(232,98,42,0.1)' }}
+      whileHover={{ y: -6, borderColor: '#2DC4A0', boxShadow: '0 12px 40px rgba(45,196,160,0.1)' }}
       className="rounded-xl p-5 border cursor-default"
-      style={{ background: '#1C1C1A', borderColor: '#3A3A38', transition: 'border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease' }}>
+      style={{ background: '#0D2B27', borderColor: '#1E4A42', transition: 'all 0.3s ease' }}>
       <div className="flex items-center gap-2 mb-4">
-        <motion.span whileHover={{ rotate: 15, scale: 1.2 }}
+        <motion.span
+          whileHover={{ rotate: 15, scale: 1.2 }}
           transition={{ type: 'spring', stiffness: 400, damping: 12 }}
-          className="text-lg">{cat.emoji}</motion.span>
-        <p className="font-mono text-xs uppercase tracking-widest" style={{ color: '#E8622A' }}>{cat.category}</p>
+          className="text-lg">{cat.emoji}
+        </motion.span>
+        <p className="font-mono text-xs uppercase tracking-widest" style={{ color: '#2DC4A0' }}>
+          {cat.category}
+        </p>
       </div>
       <div className="flex flex-wrap gap-2">
         {cat.skills.map((skill, j) => (
@@ -27,10 +31,10 @@ function SkillCard({ cat, cardIndex }) {
             initial={{ opacity: 0, scale: 0.5, y: 8 }}
             animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
             transition={{ type: 'spring', stiffness: 500, damping: 20, delay: cardIndex * 0.1 + j * 0.06 }}
-            whileHover={{ scale: 1.12, color: '#E8622A', borderColor: '#E8622A', background: 'rgba(232,98,42,0.08)' }}
+            whileHover={{ scale: 1.12, color: '#2DC4A0', borderColor: '#2DC4A0', background: 'rgba(45,196,160,0.08)' }}
             whileTap={{ scale: 0.92 }}
             className="text-xs px-3 py-1.5 rounded-full cursor-default select-none"
-            style={{ background: '#262624', color: '#B4B2A9', border: '0.5px solid #3A3A38', transition: 'all 0.2s ease' }}>
+            style={{ background: '#112E29', color: '#A8D5CC', border: '0.5px solid #1E4A42', transition: 'all 0.2s ease' }}>
             {skill}
           </motion.span>
         ))}
@@ -48,10 +52,7 @@ export default function Skills() {
   useEffect(() => {
     fetch('http://localhost:5000/api/skills')
       .then(res => res.json())
-      .then(data => {
-        setCategories(data)
-        setLoading(false)
-      })
+      .then(data => { setCategories(data); setLoading(false) })
       .catch(() => setLoading(false))
   }, [])
 
@@ -62,21 +63,23 @@ export default function Skills() {
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, ease }}
         className="font-mono text-xs tracking-widest uppercase mb-3"
-        style={{ color: '#E8622A' }}>
+        style={{ color: '#2DC4A0' }}>
         02. Skills
       </motion.p>
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, delay: 0.1, ease }}
-        className="text-4xl font-bold text-white mb-12">
+        className="text-4xl font-bold mb-12"
+        style={{ color: '#E8F5F2' }}>
         My tech stack
       </motion.h2>
       {loading ? (
         <div className="flex justify-center items-center h-40">
-          <motion.div animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+          <motion.div animate={{ rotate: 360 }}
+            transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
             className="w-8 h-8 rounded-full border-2"
-            style={{ borderColor: '#E8622A', borderTopColor: 'transparent' }} />
+            style={{ borderColor: '#2DC4A0', borderTopColor: 'transparent' }} />
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
