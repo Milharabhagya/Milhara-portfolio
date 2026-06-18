@@ -22,10 +22,10 @@ export default function ParticleBackground() {
         this.x = Math.random() * canvas.width
         this.y = Math.random() * canvas.height
         this.size = Math.random() * 1.5 + 0.3
-        this.speedX = (Math.random() - 0.5) * 0.4
-        this.speedY = (Math.random() - 0.5) * 0.4
-        this.opacity = Math.random() * 0.4 + 0.05
-        this.color = Math.random() > 0.7 ? '#2DC4A0' : '#1E4A42'
+        this.speedX = (Math.random() - 0.5) * 0.3
+        this.speedY = (Math.random() - 0.5) * 0.3
+        this.opacity = Math.random() * 0.3 + 0.05
+        this.color = Math.random() > 0.7 ? '#7C5CFC' : '#333333'
       }
       update() {
         this.x += this.speedX
@@ -54,7 +54,7 @@ export default function ParticleBackground() {
             ctx.beginPath()
             ctx.moveTo(particles[i].x, particles[i].y)
             ctx.lineTo(particles[j].x, particles[j].y)
-            ctx.strokeStyle = '#1E4A42'
+            ctx.strokeStyle = '#222222'
             ctx.globalAlpha = (1 - dist / 100) * 0.3
             ctx.lineWidth = 0.5
             ctx.stroke()
@@ -80,6 +80,6 @@ export default function ParticleBackground() {
 
   return (
     <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none"
-      style={{ zIndex: 0, opacity: 0.6 }} />
+      style={{ zIndex: 0, opacity: 0.5 }} />
   )
 }

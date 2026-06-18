@@ -1,18 +1,16 @@
 @import "tailwindcss";
 
-* {
-  scroll-behavior: smooth;
-}
+* { scroll-behavior: smooth; }
 
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: #111110; }
-::-webkit-scrollbar-thumb { background: #E8622A; border-radius: 4px; }
+::-webkit-scrollbar-track { background: #000000; }
+::-webkit-scrollbar-thumb { background: #7C5CFC; border-radius: 4px; }
 
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
-.cursor-blink { animation: blink 1s infinite; color: #E8622A; }
+.cursor-blink { animation: blink 1s infinite; color: #7C5CFC; }
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }

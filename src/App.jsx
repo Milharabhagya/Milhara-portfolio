@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Skills from './components/Skills'
@@ -8,12 +9,11 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ParticleBackground from './components/ParticleBackground'
 
-function App() {
+function Home() {
   return (
-    <div className="relative" style={{ background: '#111110', minHeight: '100vh' }}>
+    <div className="relative" style={{ background: '#0A0A0A', minHeight: '100vh' }}>
       <ParticleBackground />
       <div className="relative z-10">
-        <Navbar />
         <Hero />
         <Skills />
         <Projects />
@@ -23,6 +23,19 @@ function App() {
         <Footer />
       </div>
     </div>
+  )
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <div style={{ background: '#0A0A0A' }}>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   )
 }
 
