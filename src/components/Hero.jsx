@@ -10,6 +10,7 @@ export default function Hero() {
   return (
     <section id="about" className="min-h-screen flex items-center max-w-6xl mx-auto px-6 pt-16">
       <div className="w-full py-10">
+
         {/* Name */}
         <motion.h1 {...fadeUp(0.2)}
           className="text-6xl md:text-8xl font-bold leading-tight tracking-tight mb-3">
