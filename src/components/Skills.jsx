@@ -168,7 +168,7 @@ export default function Skills() {
             color: '#7c5cfc', fontWeight: 600, marginBottom: 8,
           }}
         >
-          02. Skills
+           Skills
         </motion.p>
 
         {/* Heading */}

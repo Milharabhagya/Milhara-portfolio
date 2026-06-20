@@ -65,7 +65,7 @@ export default function Experience() {
             color: '#7c5cfc', fontWeight: 600, marginBottom: 8,
           }}
         >
-          04. Experience
+           Experience
         </motion.p>
 
         {/* Heading */}

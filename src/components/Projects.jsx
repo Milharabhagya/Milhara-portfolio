@@ -199,7 +199,7 @@ export default function Projects() {
             color: '#7c5cfc', fontWeight: 600, marginBottom: 8,
           }}
         >
-          03. Projects
+           Projects
         </motion.p>
 
         {/* Heading */}

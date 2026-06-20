@@ -29,7 +29,7 @@ const education = [
     year: '2019',
     type: 'O/L',
     subjects: [],
-    result: 'Mathematics — A · English — C',
+    
   },
   {
     icon: '🏫',
@@ -95,7 +95,7 @@ export default function Education() {
             color: '#7c5cfc', fontWeight: 600, marginBottom: 8,
           }}
         >
-          05. Education
+           Education
         </motion.p>
 
         {/* Heading */}

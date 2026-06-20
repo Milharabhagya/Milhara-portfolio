@@ -104,7 +104,7 @@ export default function Contact() {
             color: '#7c5cfc', fontWeight: 600, marginBottom: 8,
           }}
         >
-          06. Contact
+           Contact
         </motion.p>
 
         {/* Heading */}
