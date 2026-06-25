@@ -57,15 +57,16 @@ const seedData = async () => {
   const projectCount = await Project.countDocuments()
   if (projectCount === 0) {
     await Project.insertMany([
-      { icon: '📋', name: 'Safe Serve', desc: 'Web app for Public Health Inspectors with dashboard, calendar, inspection log and analytics.', tech: ['HTML', 'CSS', 'Java'], order: 1 },
-      { icon: '💡', name: 'Lumi Smart', desc: 'IoT smart street lighting with dashboard, map view, control panel, zone log and analytics.', tech: ['HTML', 'CSS', 'JavaScript', 'IoT'], order: 2 },
-      { icon: '📱', name: 'Team Sync', desc: 'Mobile project management app for team collaboration and task management.', tech: ['Flutter', 'Dart', 'Firebase'], order: 3 },
-      { icon: '🌿', name: 'AirLytics', desc: 'Real-time air quality monitoring for Colombo with map view, alerts and historical AQI data.', tech: ['HTML', 'CSS', 'JavaScript'], order: 4 },
-      { icon: '💳', name: 'Smart POS', desc: 'Point-of-sale system with products, stocks, discounts, bills and customer management.', tech: ['HTML', 'CSS', 'JavaScript'], order: 5 },
-      { icon: '🎬', name: 'Filmor Cinema', desc: 'Cinema booking with movie selection, PayPal payment and e-ticket generation.', tech: ['HTML', 'CSS', 'Bootstrap', 'JSP'], order: 6 },
-      { icon: '📚', name: 'Library Management', desc: 'Library system for managing books, issuing, returning and tracking due dates.', tech: ['HTML', 'CSS', 'JavaScript'], order: 7 },
-      { icon: '👗', name: 'Elegance Clothing', desc: 'E-commerce store with product listings, cart, wishlist and order summary.', tech: ['HTML', 'CSS'], order: 8 },
-      { icon: '⛽', name: 'PetroMind', desc: 'Flutter fuel management app with live prices, nearby stations, AI chatbot and role-based dashboards.', tech: ['Flutter', 'Firebase', 'FCM', 'AI API'], order: 9 },
+      { icon: '📋', name: 'Safe Serve', desc: 'Web app for Public Health Inspectors with dashboard, calendar, inspection log and analytics.', tech: ['HTML', 'CSS', 'Java'], github: 'https://github.com/SeneshFitzroy/SafeServe-PHI-Manager', order: 1 },
+      { icon: '💡', name: 'Lumi Smart', desc: 'IoT smart street lighting with dashboard, map view, control panel, zone log and analytics.', tech: ['HTML', 'CSS', 'JavaScript', 'IoT'], github: 'https://github.com/Milharabhagya', order: 2 },
+      { icon: '📱', name: 'Team Sync', desc: 'Mobile project management app for team collaboration and task management.', tech: ['Flutter', 'Dart', 'Firebase'], github: 'https://github.com/SeneshFitzroy/Task-Sync-Project-Management-Application', order: 3 },
+      { icon: '🌿', name: 'AirLytics', desc: 'Real-time air quality monitoring for Colombo with map view, alerts and historical AQI data.', tech: ['HTML', 'CSS', 'JavaScript'], github: 'https://github.com/Milharabhagya', order: 4 },
+      { icon: '💳', name: 'Smart POS', desc: 'Point-of-sale system with products, stocks, discounts, bills and customer management.', tech: ['HTML', 'CSS', 'JavaScript'], github: 'https://github.com/sadeesacs/SmartPOS', order: 5 },
+      { icon: '🎬', name: 'Filmor Cinema', desc: 'Cinema booking with movie selection, PayPal payment and e-ticket generation.', tech: ['HTML', 'CSS', 'Bootstrap', 'JSP'], github: 'https://github.com/Mandira-16/JavaProject', order: 6 },
+      { icon: '📚', name: 'Library Management', desc: 'Library system for managing books, issuing, returning and tracking due dates.', tech: ['HTML', 'CSS', 'JavaScript'], github: 'https://github.com/Milharabhagya', order: 7 },
+      { icon: '👗', name: 'Elegance Clothing', desc: 'E-commerce store with product listings, cart, wishlist and order summary.', tech: ['HTML', 'CSS'], github: 'https://github.com/Milharabhagya', order: 8 },
+      { icon: '⛽', name: 'PetroMind', desc: 'Flutter fuel management app with live prices, nearby stations, AI chatbot and role-based dashboards.', tech: ['Flutter', 'Firebase', 'FCM', 'AI API'], github: 'https://github.com/Milharabhagya/PetroMind_Final_Year_Project', order: 9 },
+      { icon: '🌐', name: 'Personal Portfolio', desc: 'My personal portfolio website built with React, Vite, Tailwind CSS and Node.js. Features smooth Framer Motion animations, particle background, MongoDB database and working contact form.', tech: ['React', 'Vite', 'Tailwind CSS', 'Node.js', 'MongoDB'], github: 'https://github.com/Milharabhagya/Milhara-portfolio', order: 0 },
     ])
     console.log('✅ Projects seeded')
   }
